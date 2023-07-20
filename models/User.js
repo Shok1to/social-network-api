@@ -8,26 +8,39 @@ const userSchema = new Schema(
       unique: true,
       required: true,
       trim: true,
+      
     },
     email: {
       type: String,
       required: true,
-      max_length: 50,
+      unique: true,
+      match: [/.+@.+\..+/,'This must be email']
     },
-    thoughts: {
-      
-    },
-    friends: {
-      
-    },
+    thoughts: [
+      {
+        type:Schema.Types.ObjectId,
+        ref:'Thought'
+      }
+    ],
+    friends: [
+      {
+        type:Schema.Types.ObjectId,
+        ref:'User'
+      }
+    ],
   },
   {
     toJSON: {
       virtuals: true,
     },
+    id: false
   }
 );
 
-const User = model('user', usersSchema);
+userSchema.virtual('friendCount').get(function(){
+  return this.friends.length;
+})
+
+const User = model('User', usersSchema);
 
 module.exports = User;
