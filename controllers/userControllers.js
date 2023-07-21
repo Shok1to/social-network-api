@@ -18,7 +18,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user with that ID' });
       }
 
-      res.json(user);
+      res.status(200).json(user);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -27,7 +27,7 @@ module.exports = {
   async createUser(req, res) {
     try {
       const dbUserData = await User.create(req.body);
-      res.json(dbUserData);
+      res.status(200).json(dbUserData);
     } catch (err) {
       res.status(500).json(err);
     }
