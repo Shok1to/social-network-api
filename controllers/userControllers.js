@@ -37,16 +37,16 @@ module.exports = {
   // PUT to update a user by its _id
   async updateUser(req,res){
     try{
-        const updateUser = await Thought.findOneAndUpdate(
+        const user = await User.findOneAndUpdate(
             {_id: req.params.userId},
             {$set: req.body},
             {runValidators: true, new: true}
         );
-        if (!updateUser) {
+        if (!user) {
             res.status(404).json({ message: 'No user with this id!' });
           }
     
-          res.status(200).json(updateUser);
+          res.status(200).json(user);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -84,7 +84,7 @@ module.exports = {
     try{
         const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: { friendId: req.params.friendId } } },
+            { $pull: { friends: { friendId: req.params.friendId }} },
             { runValidators: true, new: true }
         )
 

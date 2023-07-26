@@ -12,23 +12,31 @@ To build an API for a social network web application where users can share their
 Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
 ## Usage
-1.Added my database name, MySQL username, and MySQL password to an environment variable file then to be able to connect to a database using Sequelize
+1.GET routes to return all users and all thoughts being tested in Insomnia
+<img alt src="./assets/Get-all-thoughts.png" />
+<img alt src="./assets/Get-all-users.png" />
 
-2.Enter schema and seed commands, then a development database is created and is seeded with test data
+2.GET routes to return a single user and a single thought being tested in Insomnia
+<img alt src="./assets/Get-user-by-id.png" />
+<img alt src="./assets/Get-thoughts-by-id.png" />
 
-3.Enter the command to invoke the application, then my server is started and the Sequelize models are synced to the MySQL database
+3.The POST, PUT, and DELETE routes for users being tested in Insomnia
+<img alt src="./assets/PostUser.png" />
+<img alt src="./assets/PutUser.png" />
+<img alt src="./assets/DeleteUser.png" />
 
-3.Open API GET routes in Insomnia Core for categories, products, or tags
-<img alt src="./assets/categories.png" />
-<img alt src="./assets/products.png" />
-<img alt src="./assets/tags.png" />
-4.Test API POST, PUT, and DELETE routes in Insomnia Core, then to be able to successfully create, update, and delete data in my database
+4.the POST and DELETE routes for a user’s friend list being tested in Insomnia
+<img alt src="./assets/AddFriend.png" />
+<img alt src="./assets/RemoveFriend.png" />
 
+5.the POST and DELETE routes for reactions to thoughts being tested in Insomnia
+<img alt src="./assets/CreateReaction.png" />
+<img alt src="./assets/RemoveReaction.png" />
 
 ## Link
 [Github repository](https://github.com/Shok1to/social-network-api)
 
-[E-commerce video demo]()
+[social network api video demo]()
 
 ## License
 ![MIT](https://img.shields.io/badge/license-MIT-lightgrey.png)

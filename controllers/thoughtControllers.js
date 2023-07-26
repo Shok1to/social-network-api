@@ -74,12 +74,23 @@ module.exports = {
   //Add reaction
   async addReaction(req, res) {
     try {
-      const addReaction = await Thought.findOneAndUpdate(
-        { _id: req.body.thoughtId },
-        { $addToSet: { reactions: req.body } },
-        { runValidators: true, new: true }
-      );
-      res.status(200).json(addReaction);
+      
+      // const thought = await Thought.findOneAndUpdate(
+      //   { _id: req.params.thoughtId },
+      //   { $addToSet: { reactions: req.body.reactionBody } },
+      //   { runValidators: true, new: true }
+      // );
+      const thought = await Thought.findOneAndUpdate(
+    
+        { _id: req.params.thoughtId },
+        {
+            $push: {
+                reactions: req.body
+            }
+        },
+        { new: true }
+    )
+      res.status(200).json(thought);
     } catch (err) {
       res.status(500).json(err);
     }
