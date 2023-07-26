@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const { User, Thought } = require('../models');
 
 module.exports = {
   async getUsers(req, res) {
@@ -84,7 +84,7 @@ module.exports = {
     try{
         const user = await User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: { friendId: req.params.friendId }} },
+            { $pull: { friends:req.params.friendId } },
             { runValidators: true, new: true }
         )
 

@@ -36,7 +36,7 @@ Express.js for routing, a MongoDB database, and the Mongoose ODM.
 ## Link
 [Github repository](https://github.com/Shok1to/social-network-api)
 
-[social network api video demo]()
+[social network api video demo](https://drive.google.com/file/d/1sA3HAmDk3qz292o62sN2mhS1aXTJq-9K/view)
 
 ## License
 ![MIT](https://img.shields.io/badge/license-MIT-lightgrey.png)
